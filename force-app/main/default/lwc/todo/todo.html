@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="To-Do List" icon-name="utility:task">
+        <div class="input-box">
+            <lightning-input type="text" placeholder="Add to list" onchange={handlechange}></lightning-input>
+            <lightning-button icon-name="utility:add" label="Add" onclick={handleClick}></lightning-button>
+        </div>
+        <div class="list-box">
+            <ol>
+                <template for:each={items} for:item="item" for:index="index">
+                    <li key={item.index} class="list-item">
+                        {item.value}
+                        <lightning-button class="remove-button" icon-name="utility:first_non_empty" label="Remove"
+                            onclick={handleRemove}>
+                        </lightning-button>
+                    </li>
+                </template>
+            </ol>
+        </div>
+    </lightning-card>
+</template>
